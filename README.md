@@ -1,4 +1,4 @@
-##tutorial of redux middleware
+## tutorial of redux middleware
 
 -I am going to use [redux-thunk](https://github.com/gaearon/redux-thunk)
--and [redux-saga](s://github.com/redux-saga/redux-saga)
+-and [redux-saga](https://github.com/redux-saga/redux-saga)
