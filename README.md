@@ -43,9 +43,32 @@ componentDidMount() {
 ### Using redux-promise-middleware
 
 It takes much time to make three different action types and disptch them. We have simple tool to make it easy. 
-[redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware)
+It's [redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware).
+```
+export const getPost = (postId) => dispatch => {
+    
+    dispatch({type: GET_POST_PENDING});
 
+    return getPostAPI(postId).then(
+        (response) => {
+            dispatch({
+                type: GET_POST_SUCCESS,
+                payload: response
+            })
+        }
+    ).catch(error => {
+        dispatch({
+            type: GET_POST_FAILURE,
+            payload: error
+        });
+    })
 
-
-
-
+}
+```
+With this powerful library, I could shorten my action creators code.
+```
+export const getPost = (postId) => ({
+    type: GET_POST,
+    payload: getPostAPI(postId)
+})
+```
